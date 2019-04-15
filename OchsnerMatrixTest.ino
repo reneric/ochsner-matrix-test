@@ -7,12 +7,17 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, 3, 2, 17,
   NEO_MATRIX_TOP + NEO_MATRIX_LEFT + NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG,
   NEO_GRB + NEO_KHZ800);
 
+/******* BRIGHTNESS PERCENTAGE *******/
+const int BRIGHTNESS_PERCENT = 70;
+
+const int MAX_BRIGHTNESS = 255;
+int brightness = 50;
 
 void setup() {
   Serial.begin(9600);
   matrix.begin();
-
-  matrix.setBrightness(50);
+  brightness = (BRIGHTNESS_PERCENT/100) * MAX_BRIGHTNESS;
+  matrix.setBrightness(brightness);
 }
 
 void loop() {
